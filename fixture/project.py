@@ -1,5 +1,3 @@
-import time
-
 from model.project import Project
 
 
@@ -60,3 +58,4 @@ class ProjectHelper:
                 self.project_cache.append(Project(name=name, status=status, view_status=view_status, description=description))
         self.project_cache.pop(0)
         return list(self.project_cache)
+

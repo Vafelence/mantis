@@ -1,5 +1,4 @@
 from selenium import webdriver
-
 from fixture.project import ProjectHelper
 from fixture.session import SessionHelper
 

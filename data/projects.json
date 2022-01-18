@@ -1,0 +1,37 @@
+[
+  {
+    "py/object": "model.project.Project",
+    "name": "name1HCoN32x",
+    "status": "release",
+    "view_status": "public",
+    "description": "description8U25SE8cEAiwU"
+  },
+  {
+    "py/object": "model.project.Project",
+    "name": "name1qxb",
+    "status": "stable",
+    "view_status": "private",
+    "description": "descriptionJT35yfLzxHo5"
+  },
+  {
+    "py/object": "model.project.Project",
+    "name": "name1XI2OP",
+    "status": "obsolete",
+    "view_status": "private",
+    "description": "descriptionCwnuq"
+  },
+  {
+    "py/object": "model.project.Project",
+    "name": "name1CS8pTs2H",
+    "status": "development",
+    "view_status": "private",
+    "description": "descriptionqnEVxnP7"
+  },
+  {
+    "py/object": "model.project.Project",
+    "name": "name1",
+    "status": "obsolete",
+    "view_status": "private",
+    "description": "descriptionqdRKQ"
+  }
+]

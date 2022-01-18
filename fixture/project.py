@@ -26,10 +26,6 @@ class ProjectHelper:
         wd.find_element_by_name("name").click()
         wd.find_element_by_name("name").clear()
         wd.find_element_by_name("name").send_keys(project.name)
-        wd.find_element_by_name("status").click()
-        wd.find_element_by_name("status").send_keys(project.status)
-        wd.find_element_by_name("view_state").click()
-        wd.find_element_by_name("view_state").send_keys(project.view_status)
         wd.find_element_by_name("description").click()
         wd.find_element_by_name("description").clear()
         wd.find_element_by_name("description").send_keys(project.description)
@@ -52,10 +48,7 @@ class ProjectHelper:
             cells = project.find_elements_by_tag_name("td")
             if len(cells) == 5:
                 name = cells[0].text
-                status = cells[1].text
-                view_status = cells[3].text
                 description = cells[4].text
-                self.project_cache.append(Project(name=name, status=status, view_status=view_status, description=description))
+                self.project_cache.append(Project(name=name, description=description))
         self.project_cache.pop(0)
         return list(self.project_cache)
-

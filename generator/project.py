@@ -6,6 +6,7 @@ import os.path
 import getopt
 import sys
 
+
 try:
     opts, args = getopt.getopt(sys.argv[1:], "n:f:", ["number of projects", "file"])
 except getopt.GetoptError as err:
@@ -43,7 +44,6 @@ testdata = [
             description=random_string("description", 15))
     for i in range(n)
 ]
-
 
 file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
 

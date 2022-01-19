@@ -1,5 +1,6 @@
 from model.project import Project
 
+
 def test_add_project(app, json_projects):
     app.session.login()
     project = json_projects

@@ -1,4 +1,3 @@
-from selenium.webdriver.support.ui import Select
 from model.project import Project
 
 
@@ -33,12 +32,8 @@ class ProjectHelper:
     def fill_project_form(self, project):
         wd = self.app.wd
         self.change_field_value("name", project.name)
-        #wd.find_element_by_xpath("//select[@id='project-status']").click()
-        #wd.find_element_by_xpath("//select[@id='project-status']").send_keys("выпущен")
         self.change_select_value("//select[@id='project-status']", project.status)
         self.change_select_value("//select[@id='project-view-state']", project.view_status)
-        #wd.find_element_by_xpath("//select[@id='project-view-state']").click()
-        #wd.find_element_by_xpath("//select[@id='project-view-state']").send_keys("публичный")
         self.change_field_value("description", project.description)
 
     def create_project(self, project_data):

@@ -2,7 +2,7 @@ from model.project import Project
 import time
 
 def test_add_project(app, json_projects):
-    app.session.ensure_login()
+    app.session.login()
     project = json_projects
     old_projects = app.soap.get_projects_list()
     app.project.create_project(project)

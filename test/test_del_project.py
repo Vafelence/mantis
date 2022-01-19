@@ -1,14 +1,15 @@
-import random
 from model.project import Project
+import random
 
 
-def test_del_project(app):
-    config = app.config['web']
-    if len(app.soap.get_projects(config['username'], config['password'])) == 0:
-        app.project.add_new_project(Project(name="Del1", description="descr"))
-    old_projects = app.project.get_projects_list()
+def test_delete_project(app):
+    app.session.login()
+    if len(app.project.get_projects_list()) == 0:
+        app.project.create_project(Project(name="test"))
+    old_projects = app.soap.get_projects_list()
     project = random.choice(old_projects)
-    app.project.del_project_by_name(project.name)
+    app.project.delete_project(project.name)
+    new_projects = app.soap.get_projects_list()
     old_projects.remove(project)
-    new_projects = app.soap.get_projects(config['username'], config['password'])
-    assert sorted(old_projects, key=lambda project:project.name) == sorted(new_projects, key=lambda project:project.name)
+    assert old_projects == new_projects
+    app.session.ensure_logout()

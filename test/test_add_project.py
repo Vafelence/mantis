@@ -1,12 +1,13 @@
-
+from model.project import Project
+import time
 
 def test_add_project(app, json_projects):
+    app.session.ensure_login()
     project = json_projects
-    config = app.config['web']
-    old_projects = app.soap.get_projects(config['username'], config['password'])
-    app.project.add_new_project(project)
-    new_projects = app.soap.get_projects(config['username'], config['password'])
-    flag = app.project.add_new_project(project)
-    if flag:
-        old_projects.append(json_projects)
-    assert sorted(old_projects, key=lambda project:project.name) == sorted(new_projects, key=lambda project:project.name)
+    old_projects = app.soap.get_projects_list()
+    app.project.create_project(project)
+    new_projects = app.soap.get_projects_list()
+    old_projects.append(project)
+    assert sorted(old_projects, key=Project.name_or_max) == sorted(new_projects, key=Project.name_or_max)
+    app.session.ensure_logout()
+    time.sleep(1)

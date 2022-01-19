@@ -19,17 +19,15 @@ class SessionHelper:
         wd = self.app.wd
         return wd.find_element_by_xpath("//span[@class='user-info']").text
 
-    def login(self, username, password):
+    def login(self):
         wd = self.app.wd
         self.app.open_home_page()
-        wd.find_element_by_id("username").click()
-        wd.find_element_by_id("username").clear()
-        wd.find_element_by_id("username").send_keys(username)
-        wd.find_element_by_xpath(u"//input[@value='Вход']").click()
-        wd.find_element_by_id("password").click()
-        wd.find_element_by_id("password").clear()
-        wd.find_element_by_id("password").send_keys(password)
-        wd.find_element_by_xpath(u"//input[@value='Вход']").click()
+        wd.find_element_by_name("username").clear()
+        wd.find_element_by_name("username").send_keys(self.app.username)
+        wd.find_element_by_css_selector("input[type='submit']").click()
+        wd.find_element_by_name("password").clear()
+        wd.find_element_by_name("password").send_keys(self.app.password)
+        wd.find_element_by_css_selector("input[type='submit']").click()
 
     def ensure_logout(self):
         wd = self.app.wd

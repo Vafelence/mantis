@@ -1,10 +1,11 @@
 {
   "web": {
-  "baseUrl": "http://localhost/mantisbt-2.25.2/"
+    "baseUrl": "http://localhost/mantisbt-2.25.2/"
   },
   "webadmin": {
-  "username": "administrator",
-  "password": "root"
+    "username": "administrator",
+    "password": "root",
+    "baseUrl": "http://localhost/mantisbt-2.25.2/"
   },
   "ftp": {
     "host":"localhost",
